@@ -1,70 +1,34 @@
-PowerShell Codes
-```PowerShell
-$file = 'C:\Users\fenko\Desktop\Signal.lnk'
+####PowerShell Code Output:
+---
+HASHING TECHNIQUES
+HashedFile:C:\Users\fenko\Desktop\Signal.lnk
 
-Set-Content C:\Users\fenko\Desktop\MichaelHeberling.txt -Value "HASHING TECHNIQUES`nHashedFile:$file"
+Hash:7152C545F7FE3F8018C1B543962868C8029CEBC4
+Lenght:40
+Algorithm:SHA1
 
-"-----------------SHA1---------------"
-$Hash = (Get-FileHash $file -Algorithm SHA1).Hash
-$Alg = (Get-FileHash $file -Algorithm SHA1).Algorithm
-$Len = $Hash.Length
-$print = "`nHash:$Hash`nLenght:$Len`nAlgorithm:$Alg"
+Hash:BFCB0FE595E53555020582E42B5526A6B63BAAF9181C7517546CC34C4AAEC4B9
+Lenght:64
+Algorithm:SHA256
 
-Add-Content -Path C:\Users\fenko\Desktop\MichaelHeberling.txt -Value $print
+Hash:3DBC95C1348FC1C0DE782B1BE5B3E3FEC3E730861EF767456924EB87D7854B7432D12E2F975B2284ED45A4A7BB0DC3B3
+Lenght:96
+Algorithm:SHA384
 
-"`n-----------------SHA256---------------"
+Hash:3B55CA1BA2C91F2D1711685C086DA1BC431C1882326D181558A1CCCDA416D90223CCCCB8E047EFD809816BD8029D89DB40F63B730394F62F5C7B5667D76D0092
+Lenght:128
+Algorithm:SHA512
 
-$Hash = (Get-FileHash $file -Algorithm SHA256).Hash
-$Alg = (Get-FileHash $file -Algorithm SHA256).Algorithm
-$Len = $Hash.Length
-$print = "`nHash:$Hash`nLenght:$Len`nAlgorithm:$Alg"
+Hash:E2E6255C2761422416A5583CA5C5F7E7
+Lenght:32
+Algorithm:MD5
 
-Add-Content -Path C:\Users\fenko\Desktop\MichaelHeberling.txt -Value $print
+Hash:C246CEE9F76C680A
+Lenght:16
+Algorithm:MACTRIPLEDES
 
-"`n-----------------SHA384---------------"
-
-$Hash = (Get-FileHash $file -Algorithm SHA384).Hash
-$Alg = (Get-FileHash $file -Algorithm SHA384).Algorithm
-$Len = $Hash.Length
-$print = "`nHash:$Hash`nLenght:$Len`nAlgorithm:$Alg"
-
-Add-Content -Path C:\Users\fenko\Desktop\MichaelHeberling.txt -Value $print
-
-
-"`n-----------------SHA512---------------"
-
-$Hash = (Get-FileHash $file -Algorithm SHA512).Hash
-$Alg = (Get-FileHash $file -Algorithm SHA512).Algorithm
-$Len = $Hash.Length
-$print = "`nHash:$Hash`nLenght:$Len`nAlgorithm:$Alg"
-
-Add-Content -Path C:\Users\fenko\Desktop\MichaelHeberling.txt -Value $print
-
-"`n-----------------MD5---------------"
-
-$Hash = (Get-FileHash $file -Algorithm MD5).Hash
-$Alg = (Get-FileHash $file -Algorithm MD5).Algorithm
-$Len = $Hash.Length
-$print = "`nHash:$Hash`nLenght:$Len`nAlgorithm:$Alg"
-
-Add-Content -Path C:\Users\fenko\Desktop\MichaelHeberling.txt -Value $print
-
-"`n-----------------MACTripleDES---------------"
-
-$Hash = (Get-FileHash $file -Algorithm MACTripleDES).Hash
-$Alg = (Get-FileHash $file -Algorithm MACTripleDES).Algorithm
-$Len = $Hash.Length
-$print = "`nHash:$Hash`nLenght:$Len`nAlgorithm:$Alg"
-
-Add-Content -Path C:\Users\fenko\Desktop\MichaelHeberling.txt -Value $print
+Hash:6074A63D85FFEF2F0C0A003D5E07A6870B1A7D1C
+Lenght:40
+Algorithm:RIPEMD160
 
 
-"`n-----------------RIPEMD160---------------"
-
-$Hash = (Get-FileHash $file -Algorithm RIPEMD160).Hash
-$Alg = (Get-FileHash $file -Algorithm RIPEMD160).Algorithm
-$Len = $Hash.Length
-$print = "`nHash:$Hash`nLenght:$Len`nAlgorithm:$Alg"
-
-Add-Content -Path C:\Users\fenko\Desktop\MichaelHeberling.txt -Value $print
-```
