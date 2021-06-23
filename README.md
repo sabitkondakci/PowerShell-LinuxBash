@@ -1,6 +1,6 @@
 PowerShell Codes
-```
-  $file = 'C:\Users\fenko\Desktop\Signal.lnk'
+```PowerShell
+$file = 'C:\Users\fenko\Desktop\Signal.lnk'
 
 Set-Content C:\Users\fenko\Desktop\MichaelHeberling.txt -Value "HASHING TECHNIQUES`nHashedFile:$file"
 
