@@ -1,6 +1,7 @@
 ## PowerShell Code Output:
----
+
 HASHING TECHNIQUES
+```
 HashedFile:C:\Users\fenko\Desktop\Signal.lnk
 
 Hash:7152C545F7FE3F8018C1B543962868C8029CEBC4
@@ -30,5 +31,6 @@ Algorithm:MACTRIPLEDES
 Hash:6074A63D85FFEF2F0C0A003D5E07A6870B1A7D1C
 Lenght:40
 Algorithm:RIPEMD160
+```
 
 
