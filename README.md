@@ -1,7 +1,7 @@
 ## PowerShell Code Output
 
 
-```Python
+```Terminal
 HASHING TECHNIQUES
 HashedFile:C:\Users\fenko\Desktop\Signal.lnk
 
