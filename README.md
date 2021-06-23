@@ -1,7 +1,7 @@
-## PowerShell Code Output:
+## PowerShell Code Output
 
 
-```
+```txt
 HASHING TECHNIQUES
 HashedFile:C:\Users\fenko\Desktop\Signal.lnk
 
