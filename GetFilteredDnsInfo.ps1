@@ -3,7 +3,7 @@ $emailList='sahibinden.com','hepsiemlak.com','github.com','google.com','gmail.co
 
 Function Get-FilteredDnsInfo
 {
-    [cmdletbinding()]
+    # [cmdletbinding()] if you wish to enter a value from command line
     Param ( [string[]]$mailList, [string]$nameAdmin,[string]$primaryServer )
     
     Process{
