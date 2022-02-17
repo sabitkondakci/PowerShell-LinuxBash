@@ -115,6 +115,28 @@ alias a='clear'
 alias d='du -h'
 alias xm='sudo chmod u=rwx,g=rx,o=r' # sudo chmod 754 in binary format
 
+#git alias
+# View Git status.
+alias gs='git status'
+
+# Add a file to Git.
+alias ga='git add'
+
+# Add all files to Git.
+alias gaa='git add --all'
+
+# Commit changes to the code.
+alias gc='git commit'
+
+# View the Git log.
+alias gl='git log --oneline'
+
+# Create a new Git branch and move to the new branch at the same time. 
+alias gb='git checkout -b'
+
+# View the difference.
+alias gd='git diff'
+
 # search in history with grep
 function hg() {
    history | grep "$1";
