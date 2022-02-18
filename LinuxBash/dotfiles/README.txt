@@ -1,1 +1,1 @@
-Copy .vim , .vimrc and .bashrc to home/user directory
+Copy all files in dotfiles to /home/<user-name>/ directory
