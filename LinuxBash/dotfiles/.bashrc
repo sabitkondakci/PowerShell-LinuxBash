@@ -15,6 +15,12 @@ HISTCONTROL=ignoreboth
 # append to the history file, don't overwrite it
 shopt -s histappend
 
+# Case-insensitive globbing (used in pathname expansion)      
+shopt -s nocaseglob;                                           
+                                                              
+# Autocorrect typos in path names when using `cd`             
+shopt -s cdspell;                                             
+
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
 HISTFILESIZE=2000
@@ -66,18 +72,20 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+# Add git branch if its present to PS1
+
 parse_git_branch() {
- 	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+ git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
- if [ "$color_prompt" = yes ]; then
-  	PS1=$'${debian_chroot:+($debian_chroot)}'${ylw}'\u@'${clr}':'${blu}'\w'${pur}'$(parse_git_branch)'${clr}'$ '
+if [ "$color_prompt" = yes ]; then
+ PS1=$'${debian_chroot:+($debian_chroot)}'${ylw}'\u@'${clr}':'${blu}'\w'${pur}'$(parse_git_branch)'${clr}'$ '
 
- else
-  	PS1='${debian_chroot:+($debian_chroot)}\u@:\w$(parse_git_branch)\\n$ '
- fi
- unset color_prompt force_color_prompt
-
+else
+ PS1='${debian_chroot:+($debian_chroot)}\u@:\w$(parse_git_branch)\\n$ '
+fi
+unset color_prompt force_color_prompt
+unset blk red grn ylw blu pur cyn wht clr
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
@@ -115,7 +123,7 @@ alias a='clear'
 alias d='du -h'
 alias xm='sudo chmod u=rwx,g=rx,o=r' # sudo chmod 754 in binary format
 
-#git alias
+#git commands
 # View Git status.
 alias gs='git status'
 
@@ -131,7 +139,7 @@ alias gc='git commit'
 # View the Git log.
 alias gl='git log --oneline'
 
-# Create a new Git branch and move to the new branch at the same time. 
+# Create a new Git branch and move to the new branch at the same time.
 alias gb='git checkout -b'
 
 # View the difference.
@@ -162,6 +170,22 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+# Enable tab completion for `g` by marking it as an alias for `git`
+if type _git &> /dev/null; then
+	complete -o default -o nospace -F _git g;
+fi;
+
+# Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
+[ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2- | tr ' ' '\n')" scp sftp ssh;
+
+# Add tab completion for `defaults read|write NSGlobalDomain`
+# You could just use `-g` instead, but I like being explicit
+complete -W "NSGlobalDomain" defaults;
+
+# Add `killall` tab completion for common apps
+complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall;
+
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
