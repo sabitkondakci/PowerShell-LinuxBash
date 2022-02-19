@@ -64,6 +64,10 @@ alias gd='git diff'
 
 alias g='git'
 
+# config config --local status.showUntractedFiles no
+# git init --bare $HOME/dotfiles
+alias config='/usr/bin/git --git-dir='$HOME'/dotfiles/ --work-tree='$HOME''
+
 # Always enable colored `grep` output
 # Note: `GREP_OPTIONS="--color=auto"` is deprecated, hence the alias usage.
 alias grep='grep --color=auto'
