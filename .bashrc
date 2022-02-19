@@ -107,44 +107,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-alias lt='ls --sort time'
-alias c='cat'
-alias m='man'
-alias rmr='rm -r'
-alias v='vim'
-alias a='clear'
-alias d='du -h'
-alias xm='sudo chmod u=rwx,g=rx,o=r' # sudo chmod 754 in binary format
-
-#git commands
-# View Git status.
-alias gs='git status'
-
-# Add a file to Git.
-alias ga='git add'
-
-# Add all files to Git.
-alias gaa='git add --all'
-
-# Commit changes to the code.
-alias gc='git commit'
-
-# View the Git log.
-alias gl='git log --oneline'
-
-# Create a new Git branch and move to the new branch at the same time.
-alias gb='git checkout -b'
-
-# View the difference.
-alias gd='git diff'
-
 # search in history with grep
 function hg() {
    history | grep "$1";
@@ -201,4 +163,5 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-alias config='/usr/bin/git --git-dir=/home/fox/dotfiles --work-tree=/home/fox'
+
+alias config='/usr/bin/git --git-dir='$HOME'/dotfiles --work-tree='$HOME''

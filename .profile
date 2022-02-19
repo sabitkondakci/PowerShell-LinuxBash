@@ -11,7 +11,7 @@
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
     # add them to the source
-    for file in ~/.{bashrc,bash_prompt}; do
+    for file in ~/.{bashrc,bash_prompt,aliases}; do
         [ -r "$file" ] && [ -f "$file" ] && source "$file";
     done;
     unset file;
