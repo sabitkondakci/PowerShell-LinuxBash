@@ -137,3 +137,6 @@ alias reload="exec ${SHELL} -l"
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
+
+# Docker ps -s with format
+alias dps='docker ps -s --format "table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Size}}"'
