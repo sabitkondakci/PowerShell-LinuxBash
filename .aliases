@@ -139,5 +139,5 @@ alias reload="exec ${SHELL} -l"
 alias path='echo -e ${PATH//:/\\n}'
 
 # Docker ps -s with format
-alias dps='docker ps -s --format "table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Size}}"'
-alias dpsa='docker ps -s --format "table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Size}}"'
+alias dps='docker ps -s --format "table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Ports}}\t{{.Size}}"'
+alias dpsa='docker ps -sa --format "table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}\t{{.Size}}"'
