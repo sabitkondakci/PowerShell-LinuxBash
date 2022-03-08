@@ -39,6 +39,11 @@ alias v='vim'
 alias a='clear'
 alias d='du -h'
 alias xm='sudo chmod u=rwx,g=rx,o=r' # sudo chmod 754 in binary format
+alias dps='docker ps -s --format "table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Ports}}\t{{.Size}}"'
+alias dpsa='docker ps -sa --format "table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}\t{{.Size}}"'
+alias dim='docker images'
+alias m='minikube.exe'
+alias k='kubectl.exe'
 
 #git commands
 # View Git status.
