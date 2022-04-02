@@ -27,4 +27,5 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+function capshow { sed -n "37,46p" /proc/$1/task/$1/status; }
 
