@@ -7,6 +7,13 @@ alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 alias sh="sh -l"
 
+# Kubernetes on WSL2
+alias kgd="kubectl.exe get deploy"
+alias kgs="kubectl.exe get service"
+alias kgp="kubectl.exe get pod"
+alias k="kubectl.exe"
+alias m="minikube.exe"
+
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
 	colorflag="--color"
