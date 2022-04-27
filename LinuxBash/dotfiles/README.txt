@@ -1,7 +1,4 @@
--> Copy all files in dotfiles to /home/<user-name>/ directory; use the link down below.
--> Visit https://github.com/HR/github-clone for the instructions to clone dotfiles folder.
-
 // clone dotfiles from linux branch
--> ghclone https://github.com/SabitKondakci/PowerShell-LinuxBash/tree/linux -t <app-token or oauth-token for big folders> 
+->git clone -b linux https://github.com/SabitKondakci/PowerShell-LinuxBash/tree/linux 
 
 -> Atlassian Article to manage dotfiles efficiently : https://www.atlassian.com/git/tutorials/dotfiles
