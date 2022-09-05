@@ -1,0 +1,5 @@
+w32tm /config /update /manualpeerlist:"0.tr.pool.ntp.org 1.tr.pool.ntp.org 2.tr.pool.ntp.org 3.tr.pool.ntp.org" /syncfromflags:manual /reliable:yes
+w32tm /resync /rediscover
+w32tm /query /source
+w32tm /query /peers
+w32tm /query /status
