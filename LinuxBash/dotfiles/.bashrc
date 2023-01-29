@@ -123,6 +123,14 @@ alias a='clear'
 alias d='du -h'
 alias xm='sudo chmod u=rwx,g=rx,o=r' # sudo chmod 754 in binary format
 
+# docker quick start /etc/systemd/system/docker.socket.d/quick-start.conf
+# docker quick start /etc/systemd/system/docker.service.d/quick-start.conf
+# docker quick start /etc/systemd/system/containerd.service.d/quick-start.conf
+# docker.target /etc/systemd/system/docker.target
+
+alias sd='systemctl start docker.target'
+alias td='systemctl stop docker.target'
+
 #git commands
 # View Git status.
 alias gs='git status'
