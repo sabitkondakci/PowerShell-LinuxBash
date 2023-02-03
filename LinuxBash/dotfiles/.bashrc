@@ -209,6 +209,8 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+# open folder/file on a file manager
+# alias op='xdg-open > /dev/null 2>&1'
 
 # docker quick start /etc/systemd/system/docker.socket.d/quick-start.conf
 # docker quick start /etc/systemd/system/docker.service.d/quick-start.conf
@@ -219,8 +221,9 @@ fi
 # alias dstop='sudo systemctl stop docker.target'
 
 # systemctl and journalctl shortcuts
-# alias sctl='systemctl'
-# alias jctl='journalctl'
+# alias sctl='sudo systemctl'
+# alias jctl='sudo journalctl'
+# alias cctl='systemctl cat'
 
 # bash-complete-alias / complete_alias path
 # https://github.com/cykerway/complete-alias
@@ -229,3 +232,4 @@ fi
 
 # complete -F _complete_alias sctl
 # complete -F _complete_alias jctl
+# complete -F _complete_alias op
