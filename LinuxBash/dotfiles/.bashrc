@@ -209,6 +209,10 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# waterfox quick search function alias
+# function wtf { (waterfox-g4 --search "$1" > /dev/null 2>&1;) & }
+
 # open folder/file on a file manager
 # alias op='xdg-open > /dev/null 2>&1'
 
