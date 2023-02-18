@@ -219,19 +219,19 @@ if ! shopt -oq posix; then
 fi
 
 #My custom functions
-function who { whois -l $(nslookup $1 | awk 'NR==6 {print $2}'); }
-function wtf { set +m; (waterfox-g4 --search "$1" > /dev/null 2>&1;) & }
+# function who { whois -l $(nslookup $1 | awk 'NR==6 {print $2}'); }
+# function wtf { set +m; (waterfox-g4 --search "$1" > /dev/null 2>&1;) & }
 
 # open folder/file on a file manager
-alias op='xdg-open > /dev/null 2>&1'
+# alias op='xdg-open > /dev/null 2>&1'
 
 # docker quick start /etc/systemd/system/docker.socket.d/quick-start.conf
 # docker quick start /etc/systemd/system/docker.service.d/quick-start.conf
 # docker quick start /etc/systemd/system/containerd.service.d/quick-start.conf
 # docker.target /etc/systemd/system/docker.target
 
-alias dstart='sudo systemctl start docker.target'
-alias dstop='sudo systemctl stop docker.target'
+# alias dstart='sudo systemctl start docker.target'
+# alias dstop='sudo systemctl stop docker.target'
 
 # systemctl and journalctl
 alias sctl='sudo systemctl'
@@ -239,16 +239,16 @@ alias jctl='sudo journalctl'
 alias cctl='systemctl cat'
 
 # man --html=brave function alias
-function mann { set +m; (man --html=brave "$1" > /dev/null 2>&1;) & }
+# function mann { set +m; (man --html=brave "$1" > /dev/null 2>&1;) & }
 
 # bash-complete-alias / complete_alias path
 # https://github.com/cykerway/complete-alias
 
-. /usr/share/bash-complete-alias/complete_alias
+# . /usr/share/bash-complete-alias/complete_alias
 
-complete -F _complete_alias sctl
-complete -F _complete_alias jctl
-complete -F _complete_alias cctl
-complete -F _complete_alias op
+# complete -F _complete_alias sctl
+# complete -F _complete_alias jctl
+# complete -F _complete_alias cctl
+# complete -F _complete_alias op
 
 unset bold reset black blue cyan green orange purple red violet white yellow
