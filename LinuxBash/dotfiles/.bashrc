@@ -2,6 +2,10 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+if [ -f ~/.bash_prompt ]; then
+    . ~/.bash_prompt
+fi
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -84,12 +88,24 @@ if [ "$color_prompt" = yes ]; then
 else
  PS1='${debian_chroot:+($debian_chroot)}\u@:\w$(parse_git_branch)\\n$ '
 fi
+
 unset color_prompt force_color_prompt
 unset blk red grn ylw blu pur cyn wht clr
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@: \w\a\]$PS1"
+    # PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@: \w\a\]$PS1"
+    # Set the terminal title and prompt.
+    PS1="\[\033]0;\W\007\]"; # working directory base name
+    PS1+="\[${bold}\]\n"; # newline
+    PS1+="\[${userStyle}\]\u"; # username
+    PS1+="\[${white}\] at ";
+    PS1+="\[${hostStyle}\]\h"; # host
+    PS1+="\[${white}\] in ";
+    PS1+="\[${green}\]\w"; # working directory full path
+    PS1+="\$(prompt_git \"\[${white}\] on \[${violet}\]\" \"\[${blue}\]\")"; # Git repository details
+    PS1+="\n";
+    PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
     ;;
 *)
     ;;
@@ -122,14 +138,6 @@ alias v='vim'
 alias a='clear'
 alias d='du -h'
 alias xm='sudo chmod u=rwx,g=rx,o=r' # sudo chmod 754 in binary format
-
-# docker quick start /etc/systemd/system/docker.socket.d/quick-start.conf
-# docker quick start /etc/systemd/system/docker.service.d/quick-start.conf
-# docker quick start /etc/systemd/system/containerd.service.d/quick-start.conf
-# docker.target /etc/systemd/system/docker.target
-
-alias sd='systemctl start docker.target'
-alias td='systemctl stop docker.target'
 
 #git commands
 # View Git status.
@@ -210,30 +218,37 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# waterfox quick search function alias
-# function wtf { (waterfox-g4 --search "$1" > /dev/null 2>&1;) & }
+#My custom functions
+function who { whois -l $(nslookup $1 | awk 'NR==6 {print $2}'); }
+function wtf { set +m; (waterfox-g4 --search "$1" > /dev/null 2>&1;) & }
 
 # open folder/file on a file manager
-# alias op='xdg-open > /dev/null 2>&1'
+alias op='xdg-open > /dev/null 2>&1'
 
 # docker quick start /etc/systemd/system/docker.socket.d/quick-start.conf
 # docker quick start /etc/systemd/system/docker.service.d/quick-start.conf
 # docker quick start /etc/systemd/system/containerd.service.d/quick-start.conf
 # docker.target /etc/systemd/system/docker.target
 
-# alias dstart='sudo systemctl start docker.target'
-# alias dstop='sudo systemctl stop docker.target'
+alias dstart='sudo systemctl start docker.target'
+alias dstop='sudo systemctl stop docker.target'
 
-# systemctl and journalctl shortcuts
-# alias sctl='sudo systemctl'
-# alias jctl='sudo journalctl'
-# alias cctl='systemctl cat'
+# systemctl and journalctl
+alias sctl='sudo systemctl'
+alias jctl='sudo journalctl'
+alias cctl='systemctl cat'
+
+# man --html=brave function alias
+function mann { set +m; (man --html=brave "$1" > /dev/null 2>&1;) & }
 
 # bash-complete-alias / complete_alias path
 # https://github.com/cykerway/complete-alias
 
-# . /usr/share/bash-complete-alias/complete_alias
+. /usr/share/bash-complete-alias/complete_alias
 
-# complete -F _complete_alias sctl
-# complete -F _complete_alias jctl
-# complete -F _complete_alias op
+complete -F _complete_alias sctl
+complete -F _complete_alias jctl
+complete -F _complete_alias cctl
+complete -F _complete_alias op
+
+unset bold reset black blue cyan green orange purple red violet white yellow
