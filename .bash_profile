@@ -11,7 +11,7 @@
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
     # add them to the source
-    for file in ~/.{bash_prompt,aliases}; do
+    for file in ~/.{bashrc,bash_prompt}; do
         [ -r "$file" ] && [ -f "$file" ] && source "$file";
     done;
     unset file;
@@ -26,6 +26,3 @@ fi
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
-
-function capshow { sed -n "37,46p" /proc/$1/task/$1/status 2> /dev/null ; }
-
