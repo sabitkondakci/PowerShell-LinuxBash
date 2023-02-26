@@ -1,3 +1,5 @@
+# !/bin/bash
+
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -225,13 +227,12 @@ fi
 # open folder/file on a file manager
 # alias op='xdg-open > /dev/null 2>&1'
 
-# docker quick start /etc/systemd/system/docker.socket.d/quick-start.conf
-# docker quick start /etc/systemd/system/docker.service.d/quick-start.conf
-# docker quick start /etc/systemd/system/containerd.service.d/quick-start.conf
-# docker.target /etc/systemd/system/docker.target
-
-# alias dstart='sudo systemctl start docker.target'
-# alias dstop='sudo systemctl stop docker.target'
+# alias dstart='sudo systemctl start docker.service'
+# function dstop {
+#   sudo systemctl stop docker.service > /dev/null 2>&1;
+#   sudo systemctl stop docker.socket;
+#   sudo systemctl stop containerd.service;
+# }
 
 # systemctl and journalctl
 alias sctl='sudo systemctl'
